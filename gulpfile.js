@@ -79,8 +79,7 @@ function resetDist() {
 }
 
 function cleanDist(cb) {
-  return src("./dist/", { read: false })
-    .pipe(dest("./dist/"))
+  return src("./dist/**/*", { read: false })
     .pipe(clean({ force: true }))
     .on("end", () => {
       log.info(chalk.red("Borrando carpeta dist"));
