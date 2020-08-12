@@ -1,0 +1,31 @@
+{
+  "landingsData": {
+    "artritis": {
+      "resumen": {
+        "text": "Los síntomas de la osteoartritis (OA) normalmente comienzan después de los 40 años, pero pueden afectar a personas más jóvenes después de una lesión traumática."
+      },
+      "facts": {
+        "text": "La osteoartritis (OA) es más probable que afecte a las mujeres que a los hombres después de los 50 años."
+      },
+      "reasons": {
+        "title": "Estas son las razones por las que tenemos osteoartritis",
+        "imgAlt": "Artritis"
+      },
+      "symptoms": {
+        "title": "SÍNTOMAS<br>El artritis puede tener muchos síntomas, incluyendo:",
+        "subtitle": "“Los síntomas progresan lentamente y contribuyen a la discapacidad en el lugar de trabajo y reducen la calidad de vida.”",
+
+        "img": {
+          "alt": "Sintomas de la artritis",
+          "caption": "Algunos de los síntomas del dolor de artitis"
+        }
+      },
+      "treatment": {
+        "img": {
+          "alt": "Evite realizar actividades de alto impacto hasta después de que el dolor muscular desaparezca",
+          "caption": "Evite realizar actividades de alto impacto hasta después de que el dolor muscular desaparezca"
+        }
+      }
+    }
+  }
+}

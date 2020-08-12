@@ -1,0 +1,322 @@
+{# layout.twig #}
+
+{% set muestraLink =
+"https://byebyedolor.com/content/obten-una-muestra-gratis-del-mejor-analgesico"
+%}
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ pageName }}</title>
+
+    <link rel="shortcut icon"
+      href="https://byebyedolor.com/sites/default/files/favicon.png"
+      type="image/png">
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;600&display=swap"
+      rel="stylesheet"
+      />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap"
+      rel="stylesheet"
+      />
+
+    <link rel="stylesheet" href="../landings-assets/css/main.min.css" />
+    <link rel="stylesheet" href="css/main.min.css" />
+    <!-- build:css -->
+    <!-- endbuild -->
+
+    <!-- Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <!-- <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"></script>-->
+  </head>
+  <body class="landing-page landing-artritis">
+    <main id="panel">
+      <section class="intro">
+        <div class="full-section intro-parallax">
+          <div
+            class="intro-parallax-img"
+            style="background-image: url(imgs/intro.jpg);"></div>
+        </div>
+        <div class="container intro-content text-center">
+          <img
+            src="../landings-assets/imgs/logo.svg"
+            alt="Byebye Dolor"
+            class="site-logo"
+            />
+          <div class="intro">
+            <h1>
+              {{ intro.title }}
+            </h1>
+            <h4 class="intro-subtitle">
+              <span>
+                {{ intro.subtitle }}
+              </span>
+            </h4>
+            <p class="small intro-date"><b><span>02 de abril de 2020, 11:08</span></b></p>
+            <a
+              class="btn btn-primary"
+              href="{{ muestraLink }}">
+              Muestra gratis
+            </a>
+          </div>
+          {% include "includes/social-media.html" %}
+        </div>
+      </section>
+
+      <section class="text-center resumen">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-10 col-xl-8">
+              <h5 class="resumen-text">
+                {{ resumen }}
+              </h5>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="definition">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="img-half-sice definition-img"></div>
+            </div>
+            <div class="col-md-5 offset-md-1">
+              <h3 class="definition-title">¿Qué es?</h3>
+              {% block definition %}{% endblock %}
+            </div>
+          </div>
+        </section>
+
+        <section class="facts bg-secondary">
+          <div class="container">
+            <div class="row justify-content-center text-center">
+              <div class="col-md-8">
+                <h5>
+                  {{ facts }}
+                </h5>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="reasons">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6">
+                <h3>{{ reasons.title }}</h3>
+                {% block reasons %}{% endblock %}
+              </div>
+              {# <div class="col-md-5 offset-md-1"> #}
+                <img class="reasons-img" srcset="imgs/reasons-img@1x.jpg,
+                  imgs/reasons-img@2x.jpg
+                  2x" alt="{{ reasons.imgAlt }}" />
+                {# </div> #}
+            </div>
+          </div>
+        </section>
+
+        <section class="symptoms">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+                <h3>
+                  {{ symptoms.title }}
+                </h3>
+              </div>
+              <div class="col-md-7 offset-md-2 col-lg-5 offset-lg-3">
+                <h6 class="symptoms-subtitle">{{ symptoms.subtitle }}</h6>
+              </div>
+              <div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+                {% block symptoms %}{% endblock %}
+              </div>
+              <div class="col-md-9 offset-md-2 col-lg-7 offset-lg-3">
+                <figure class="figure">
+                  <img
+                    class="img-fluid symptoms-img"
+                    srcset="imgs/symptoms-img@1x.jpg,
+                    imgs/symptoms-img@2x.jpg
+                    2x"
+                    alt="{{ symptoms.img.alt }}"
+                    />
+                  <figcaption class="figure-caption">{{ symptoms.img.caption }}</figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+        <section class="clasification">
+          <div
+            class="full-section clasification-parallax"
+            style="background-image: url('imgs/clasification-img@1x.jpg');">
+          </div>
+          <div class="container clasification-container">
+            <div class="row">
+              <div class="col-md-6 col-lg-4">
+                <h2>
+                  {{ clasification.title }}
+                </h2>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-8 col-lg-5">
+                <h5>
+                  {{ clasification.subtitle }}
+                </h5>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-7 col-lg-6">
+                {% block clasification %}{% endblock %}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="treatment">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-9 offset-md-2 col-lg-6 offset-lg-3">
+                {% block care %}{% endblock %}
+                {% block treatment %}{% endblock %}
+              </div>
+              <div class="col-md-10 offset-md-2 col-lg-5 offset-lg-3">
+                <figure class="figure">
+                  <img
+                    class="img-fluid"
+                    srcset="imgs/treatment-img@1x.jpg,
+                    imgs/treatment-img@2x.jpg
+                    2x"
+                    alt="{{ treatment.img.alt }}"
+                    />
+                  <figcaption class="figure-caption">{{ treatment.img.caption
+                    }}.</figcaption>
+                </figure>
+                {% include "includes/social-media.html" %}
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+
+        <section class="references">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6 offset-md-3">
+                <p class="references-title">Referencias</p>
+                <ul>
+                  {% for reference in references %}
+                  <li>
+                    <a href="{{ reference }}" target="_blank">{{ reference }}</a>
+                  </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="muestra bg-secondary">
+          <div class="container">
+            <div class="row justify-content-center text-center">
+              <div class="col-md-8 col-lg-6 col-xl-4">
+                <p class="muestra-text">
+                  Conoce <b>Flanax</b>, medicamento eficáz contra el dolor de
+                  cabeza.
+                  Pide una muestra gratis.
+                </p>
+                <a
+                  class="btn btn-primary"
+                  href="{{ muestraLink }}">
+                  Muestra gratis
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="footer">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-md-9 text-center">
+                <img
+                  src="../landings-assets/imgs/icons/logo-footer.svg"
+                  alt="Byebye Dolor"
+                  />
+                <div class="footer-texts">
+                  <p class="mb-4">
+                    © 2019 Bye Bye Dolor. 12641 Antioch Road
+                    Suite
+                    #1028.
+                    Overland
+                    Park, KS 66213
+                  </p>
+                  <p>
+                    Una compañía con registro 5013C cuya misión es proveeer de
+                    educación médica para varias enfermedades dirigido a
+                    personas desatendidas o con barreras que dificulten la
+                    comprensión de tratamientos aplicables, así como medidas
+                    preventivas que pueden ser tomadas para prevenir dichas
+                    enfermedades.
+                  </p>
+                  <p class="footer-share">
+                    <a
+                      class="fb-link"
+                      href="https://www.facebook.com/esFlanaxUSA/"
+                      target="_blank">
+                      <svg>
+                        <use
+                          xlink:href="../landings-assets/imgs/icons/fb-footer.svg#img"></use>
+                      </svg>
+                    </a>
+                  </p>
+                  <p>
+                    <a
+                      href="https://byebyedolor.com/politicas-de-privacidad"
+                      target="_blank">Aviso de Privacidad</a>
+                    <span class="footer-separator">|</span>
+                    <a
+                      href="https://byebyedolor.com/terminos-y-condiciones"
+                      target="_blank">Términos y Condiciones</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </body>
+
+    <!-- build:js -->
+    <!-- Magic scroll -->
+    <script
+      src="../landings-assets/js/lib/gsap3/gsap.min.js"></script>
+    <script
+      type="text/javascript"
+      src="../landings-assets/js/lib/scrollmagic/ScrollMagic.js"></script>
+    <script
+      type="text/javascript"
+      src="../landings-assets/js/lib/scrollmagic/plugins/animation.gsap.js"></script>
+    <script src="../landings-assets/js/main.js"></script>
+    <!-- endbuild -->
+    <!--<script
+      type="text/javascript"
+  src="../landings-assets/js/lib/scrollmagic/plugins/debug.addIndicators.js"></script>
+    <script
+      type="text/javascript"
+      src="../landings-assets/js/lib/greensock/plugins/ScrollToPlugin.min.js"></script>-->
+  </html>

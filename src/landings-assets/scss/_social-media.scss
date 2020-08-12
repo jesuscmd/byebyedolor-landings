@@ -1,0 +1,29 @@
+// social media
+.sm-wrapper {
+  display: flex;
+  align-items: center;
+  .small {
+    font-weight: 600;
+  }
+}
+.sm {
+  display: inline-flex;
+}
+.sm-item {
+  height: (24em/20);
+  width: (24em/20);
+  background-color: white;
+  border-radius: 3px;
+  display: inline-flex;
+  margin-left: $spacer;
+  @include transition(color 0.15s ease-in-out);
+  &:hover {
+    color: #00243d;
+  }
+  @include media-breakpoint-down(sm) {
+    height: 2em;
+    width: 2em;
+    border-radius: 6px;
+    margin-left: $spacer * 2;
+  }
+}

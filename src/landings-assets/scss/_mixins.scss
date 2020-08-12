@@ -1,0 +1,66 @@
+// mixins
+@mixin transition($x...) {
+  -webkit-transition: $x;
+  -moz-transition: $x;
+  -ms-transition: $x;
+  -o-transition: $x;
+  transition: $x;
+}
+
+// Resolutions must be defined as SASS list of device-pixel-density coefficient, like: [1 1.5, 2, 2.5] (see mixin call below)
+// Related files should be named by template: {fileName}-(pixel density value, corrssponding to the image), e.g. "image-2x.jpg"
+// If the pixel density value is not an integer, the dot in the filename should be replaced with underscore, e.g. "image-1_5x.jpg"
+
+//HELPER FUNCTIONS
+// Replace some content in the string with another content
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace +
+      str-replace(
+        str-slice($string, $index + str-length($search)),
+        $search,
+        $replace
+      );
+  }
+  @return $string;
+}
+
+//Get the index of the last occurence of substring in string
+@function str-last-index($string, $substr) {
+  $index: null;
+  $length: str-length($string);
+
+  @for $n from $length through 1 {
+    $index: str-index(str-slice($string, $n, $length), $substr);
+    @if $index {
+      @return $index + $n - 1;
+    }
+  }
+
+  @return $index;
+}
+
+// MIXIN DEFINITION
+@mixin imageSet($url, $resolutions) {
+  $fileExt: str-slice($url, str-last-index($url, '.'));
+  $filePath: str-slice($url, 0, str-last-index($url, '.') - 1);
+  $imageSetList: ();
+  @each $resolution in $resolutions {
+    $resolution: $resolution + x; //turns number to string
+    $fileSuffix: str-replace(
+      $resolution,
+      '.',
+      '_'
+    ); //replace (.) dot in filenames with underscore, to avoid conflicts
+    $imageSetList: append(
+      $imageSetList,
+      url('#{$filePath}@#{$fileSuffix}#{$fileExt}') $resolution,
+      comma
+    );
+  }
+  background-image: url('#{$url}');
+  background-image: -webkit-image-set($imageSetList);
+  //Never loose hope for unprefixed support
+  background-image: image-set($imageSetList);
+}

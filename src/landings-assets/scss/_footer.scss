@@ -1,0 +1,19 @@
+#footer {
+  font-size: (13em/20);
+  line-height: (20em/13);
+  color: $gray-400;
+  margin: $spacer * 3 0;
+}
+.footer-texts {
+  margin-top: 22px;
+}
+.fb-link {
+  svg {
+    height: (24px);
+    width: (24px);
+  }
+  display: inline-block;
+}
+.footer-separator {
+  margin: 0 $spacer;
+}
