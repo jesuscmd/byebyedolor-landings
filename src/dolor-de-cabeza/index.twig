@@ -1,121 +1,290 @@
 {# index.twig #}
 {% extends '../layout.twig' %}
 
-{% set meta= {
-"description": "",
-"tags" :""
-}
-%}
+{% set meta = {
+  description: 'Los dolores de cabeza son extremadamente frecuentes. Aunque pueden durar unos minutos, para algunas personas pueden durar toda la vida.',
+  tags: 'dolor de cabeza, dolores de cabeza, que es el dolor de cabeza, cefalea, migraña, jaqueca, jaqueca síntomas, cefalea tensional, cefalea síntomas,medicamentos para el dolor de cabeza, dolor de cabeza intenso, pastillas para el dolor de cabeza, pastillas para la migraña, como quitar el dolor de cabeza'
+} %}
+{% set canonicalURL = 'https://byebyedolor.com/dolor-de-cabeza/index.html' %}
+{% set pageName = 'Artritis | Byebye Dolor' %}
+{% set shareLink = 'https://byebyedolor.com/dolor-de-cabeza/' %}
+{% set ogImg = 'https://byebyedolor.com/dolor-de-cabeza/imgs/intro-img.jpg' %}
 
-{% set pageName = "Dolor de cabeza | Byebye Dolor" %}
-{% set shareLink = "https://byebyedolor.com/dolor-de-cabeza/" %}
+{% set pageName = 'Dolor de cabeza | Byebye Dolor' %}
+{% set shareLink = 'https://byebyedolor.com/dolor-de-cabeza/' %}
 
 {% set intro = {
-"title": "Dolor de cabeza",
-"subtitle": "ntendiendo el padecimiento del que sufre más de XXX millones de personas al año."
-}
-%}
+  title: 'Dolor de cabeza',
+  subtitle: 'Entendiendo el padecimiento del que sufre más de XXX millones de personas al año.'
+} %}
 
-{% set resumen = "El dolor de cabeza, también llamado cefalea, jaqueca o migraña, es una queja médica muy común. La gran mayoría de las personas experimentará algún tipo de dolor de cabeza en su vida. Afectan a cualquier persona, independientemente de su género, edad y raza. 
-"
+{% set resumen =
+  'El dolor de cabeza, también llamado cefalea, jaqueca o migraña, es una queja médica muy común. La gran mayoría de las personas experimentará algún tipo de dolor de cabeza en su vida. Afectan a cualquier persona, independientemente de su género, edad y raza. 
+'
 %}
 
 {% block definition %}
-<p>El dolor de cabeza generalmente se describe como: presión regular y constante, palpitaciones, una banda o tornillo apretando la cabeza, dolor en todo el cráneo (no focalizado), dolor en una parte en particular de cabeza, cuello y hombros. Un dolor de cabeza podría ser un signo de angustia emocional o de estrés, o ser resultado de migraña o presión arterial alta, así como depresión o ansiedad. Aunque existen más de 300 tipos de dolor de cabeza, generalmente se clasifican en: dolor de cabeza primario, que generalmente no requiere visitar a un doctor, y dolor de cabeza secundario, causados por alguna otra enfermedad o problema subyacente. El dolor de cabeza intenso y frecuente puede ser una enfermedad incapacitante que afecta la calidad de vida, por lo que en este caso se sugiere acudir a un especialista antes de automedicarse.</p>
+  <p>
+    El dolor de cabeza generalmente se describe como: presión regular y
+    constante, palpitaciones, una banda o tornillo apretando la cabeza, dolor en
+    todo el cráneo (no focalizado), dolor en una parte en particular de cabeza,
+    cuello y hombros. Un dolor de cabeza podría ser un signo de angustia
+    emocional o de estrés, o ser resultado de migraña o presión arterial alta,
+    así como depresión o ansiedad. Aunque existen más de 300 tipos de dolor de
+    cabeza, generalmente se clasifican en: dolor de cabeza primario, que
+    generalmente no requiere visitar a un doctor, y dolor de cabeza secundario,
+    causados por alguna otra enfermedad o problema subyacente. El dolor de
+    cabeza intenso y frecuente puede ser una enfermedad incapacitante que afecta
+    la calidad de vida, por lo que en este caso se sugiere acudir a un
+    especialista antes de automedicarse.
+  </p>
 {% endblock %}
 
-{% set facts = "“Los dolores de cabeza, también llamado cefalea, suceden a cualquier edad, aunque se presentan comúnmente en adultos y adolescentes.”"
+{% set facts =
+  '“Los dolores de cabeza, también llamado cefalea, suceden a cualquier edad, aunque se presentan comúnmente en adultos y adolescentes.”'
 %}
 
 {% set reasons = {
-"title": "Estas son las razones por las que tenemos dolor de cabeza",
-"imgAlt": "Razones del dolor de cabeza | Byebye Dolor"
-}
-%}
+  title: 'Estas son las razones por las que tenemos dolor de cabeza',
+  imgAlt: 'Razones del dolor de cabeza | Byebye Dolor'
+} %}
 
 {% block reasons %}
-<p>Los dolores de cabeza por tensión se producen cuando los músculos del cuello o cuero cabelludo se contraen o tensan. Las contracciones musculares son, luego entonces, una respuesta a dicho estrés, depresión, lesión en la cabeza o ansiedad.</p>
-<p>Cualquier actividad que requiera que la cabeza se mantenga en una misma posición durante largo tiempo podría provocar un dolor de cabeza. Dichas actividades incluyen por lo general trabajos en computadora, mecanografía, manualidades o incluso el uso de un microscopio. Dormir con el cuello en una posición anormal, o en una habitación fría, también puede provocar un dolor de cabeza tensional.</p>
-<p>Otros factores que desencadenan los dolores de cabeza incluyen:</p>
-<p>Ambiente, estrés (emocional y físico), consumo de cafeína (demasiado o abstinencia, resaca provocada por ingerir alcohol en exceso, sinusitis, gripe o resfriados, congelación cerebral, cambios en el patrón del sueño<br />Problemas dentales que provocan apretar la mandíbula o rechinar los dientes, uso excesivo de medicamentos para el dolor, conocidos como dolores de cabeza de rebote, fatiga visua, ataques de pánic, fatiga o esfuerzo excesivo, coagulo de sangre, envenenamiento por monóxido de carbono, golpe o contusión, deshidratación, glaucoma, influenza, embolia o Infarto cerebral, tumor cerebral, genética, tabaco, algunos alimentos como el chocolate o alimentos altos en nitritos y el ciclo menstrual en las mujeres.</p>
+  <p>
+    Los dolores de cabeza por tensión se producen cuando los músculos del cuello
+    o cuero cabelludo se contraen o tensan. Las contracciones musculares son,
+    luego entonces, una respuesta a dicho estrés, depresión, lesión en la cabeza
+    o ansiedad.
+  </p>
+  <p>
+    Cualquier actividad que requiera que la cabeza se mantenga en una misma
+    posición durante largo tiempo podría provocar un dolor de cabeza. Dichas
+    actividades incluyen por lo general trabajos en computadora, mecanografía,
+    manualidades o incluso el uso de un microscopio. Dormir con el cuello en una
+    posición anormal, o en una habitación fría, también puede provocar un dolor
+    de cabeza tensional.
+  </p>
+  <p>
+    Otros factores que desencadenan los dolores de cabeza incluyen:
+  </p>
+  <p>
+    Ambiente, estrés (emocional y físico), consumo de cafeína (demasiado o
+    abstinencia, resaca provocada por ingerir alcohol en exceso, sinusitis,
+    gripe o resfriados, congelación cerebral, cambios en el patrón del sueño
+  </p>
+  <p>
+    Problemas dentales que provocan apretar la mandíbula o rechinar los dientes,
+    uso excesivo de medicamentos para el dolor, conocidos como dolores de cabeza
+    de rebote, fatiga visua, ataques de pánic, fatiga o esfuerzo excesivo,
+    coagulo de sangre, envenenamiento por monóxido de carbono, golpe o
+    contusión, deshidratación, glaucoma, influenza, embolia o Infarto cerebral,
+    tumor cerebral, genética, tabaco, algunos alimentos como el chocolate o
+    alimentos altos en nitritos y el ciclo menstrual en las mujeres.
+  </p>
 {% endblock %}
 
 {% set symptoms = {
-"title": "SÍNTOMAS</br>Estas son las razones por las que tenemos dolor de cabeza",
-"subtitle": "“El dolor de cabeza o jaqueca se presenta una vez, frecuente, o diariamente. El dolor llega a durar desde 30 minutos hasta 7 días. Es posible desencadenarse o empeorar por el estrés, la fatiga, el ruido o el deslumbramiento. Puede haber dificultades para conciliar el sueño.”",
-"img": {
-"alt": "Dolor de cabeza | Tipos de dolor de cabeza según los síntomas",
-"caption": "Tipos de dolor de cabeza según los síntomas"
-}
-}
-%}
+  title: 'SÍNTOMAS</br>Estas son las razones por las que tenemos dolor de cabeza',
+  subtitle: '“El dolor de cabeza o jaqueca se presenta una vez, frecuente, o diariamente. El dolor llega a durar desde 30 minutos hasta 7 días. Es posible desencadenarse o empeorar por el estrés, la fatiga, el ruido o el deslumbramiento. Puede haber dificultades para conciliar el sueño.”',
+  img: {
+    alt: 'Dolor de cabeza | Tipos de dolor de cabeza según los síntomas',
+    caption: 'Tipos de dolor de cabeza según los síntomas'
+  }
+} %}
 
 {% block symptoms %}
-<p>Dependiendo la causa o tipo, los síntomas de una jaqueca o cefalea pueden incluir:</p>
-<p><strong>En racimo</strong> (o en brotes): Dolor en alguna parte como el cuero cabelludo, encima o alrededor de los ojos o las orejas, detrás de la cabeza o en la nuca, dolor en la parte superior de la cabeza (dolor de cabeza coronal), dolor en las sienes o la zona posterior superior del cuello, y posiblemente en los hombros. El dolor dura poco tiempo, generalmente de 30 a 90 minutos (pudiendo durar tres horas); el dolor de cabeza desaparecerá, solo para reaparecer más tarde ese día (la mayoría de los pacientes sufren de uno a tres dolores de cabeza y algunos hasta ocho por día durante un período de agrupación). Puede ser crónica o episódica. La cefalea en brotes crónica ocurre frecuentemente a la misma hora cada día, pudiendo despertar a la persona a la misma hora durante la noche.</p>
-<p><strong>Tensional o por tensión</strong>: Es el tipo de cefalea más común, existiendo cefalea tensional crónica y episódica. Se siente como una banda que presiona la cabeza, el dolor afecta la parte frontal, superior o lateral de la cabeza, el dolor comienza gradualmente y con frecuencia ocurre a la mitad del día dura desde 30 minutos hasta varios días.</p>
-<p><strong>Migraña (jaqueca</strong>): dolor, náuseas, vómito, dolor abdominal, falta de apetito, fatiga, palidez, alteraciones visuales, sensibilidad a la luz, ruido y olores, visión borrosa, fiebre. Los síntomas pueden durar de 4 horas a 3 días, y algunas veces más. Afecta principalmente a las mujeres, y puede aparecer en la pubertad, afectando principalmente al grupo de edad de los 35 -45 años. A menudo es recurrente y puede durar toda la vida.</p>
-<p><strong>De rebote (por el uso excesivo de analgésicos)</strong>: Es causado por el consumo indiscriminado de pastillas para el dolor de cabeza. Afecta más a las mujeres que los hombres. Se describe como un dolor de cabeza generalmente opresivo, persistente y que generalmente es peor al despertar.</p>
+  <p>
+    Dependiendo la causa o tipo, los síntomas de una jaqueca o cefalea pueden
+    incluir:
+  </p>
+  <p>
+    <strong>En racimo</strong> (o en brotes): Dolor en alguna parte como el cuero
+    cabelludo, encima o alrededor de los ojos o las orejas, detrás de la cabeza o
+    en la nuca, dolor en la parte superior de la cabeza (dolor de cabeza coronal),
+    dolor en las sienes o la zona posterior superior del cuello, y posiblemente en
+    los hombros. El dolor dura poco tiempo, generalmente de 30 a 90 minutos (pudiendo
+    durar tres horas); el dolor de cabeza desaparecerá, solo para reaparecer más
+    tarde ese día (la mayoría de los pacientes sufren de uno a tres dolores de cabeza
+    y algunos hasta ocho por día durante un período de agrupación). Puede ser crónica
+    o episódica. La cefalea en brotes crónica ocurre frecuentemente a la misma hora
+    cada día, pudiendo despertar a la persona a la misma hora durante la noche.
+  </p>
+  <p>
+    <strong>Tensional o por tensión</strong>: Es el tipo de cefalea más común,
+    existiendo cefalea tensional crónica y episódica. Se siente como una banda
+    que presiona la cabeza, el dolor afecta la parte frontal, superior o lateral
+    de la cabeza, el dolor comienza gradualmente y con frecuencia ocurre a la
+    mitad del día dura desde 30 minutos hasta varios días.
+  </p>
+  <p>
+    <strong>Migraña (jaqueca</strong>): dolor, náuseas, vómito, dolor abdominal,
+    falta de apetito, fatiga, palidez, alteraciones visuales, sensibilidad a la
+    luz, ruido y olores, visión borrosa, fiebre. Los síntomas pueden durar de 4
+    horas a 3 días, y algunas veces más. Afecta principalmente a las mujeres, y
+    puede aparecer en la pubertad, afectando principalmente al grupo de edad de
+    los 35 -45 años. A menudo es recurrente y puede durar toda la vida.
+  </p>
+  <p>
+    <strong>De rebote (por el uso excesivo de analgésicos)</strong>: Es causado
+    por el consumo indiscriminado de pastillas para el dolor de cabeza. Afecta
+    más a las mujeres que los hombres. Se describe como un dolor de cabeza
+    generalmente opresivo, persistente y que generalmente es peor al despertar.
+  </p>
 {% endblock %}
 
 <!-- clasification -->
 {% set clasification = {
-"title": "Clasificación del dolor de cabeza",
-"subtitle": "“La mayoría de la población ha experimentado un dolor de cabeza en algún momento de su vida. Pero no todos los dolores de cabeza son iguales. De hecho, hay más de 300 tipos de dolores de cabeza según la Clasificación internacional de Trastornos de Dolor de Cabeza (ICHD, por sus siglas en inglés)”"
-}
-%}
+  title: 'Clasificación del dolor de cabeza',
+  subtitle: '“La mayoría de la población ha experimentado un dolor de cabeza en algún momento de su vida. Pero no todos los dolores de cabeza son iguales. De hecho, hay más de 300 tipos de dolores de cabeza según la Clasificación internacional de Trastornos de Dolor de Cabeza (ICHD, por sus siglas en inglés)”'
+} %}
 
 {% block clasification %}
-<p><strong>Dolores de cabeza primarios</strong>: La mayoría de los dolores de cabeza son benignos y no requieren una visita a un médico. Estos se llaman dolores de cabeza primarios y representan más del 90 por ciento de las quejas por dolores de cabeza. Los dolores de cabeza primarios no están asociados con otras enfermedades. Ejemplos de cefaleas primarias son migrañas, cefaleas tensionales y cefaleas en racimos. Los dolores de cabeza por tensión son el tipo más común de dolor de cabeza primario. Las migrañas son el segundo tipo más común de cefalea primaria. Los dolores de cabeza en racimo son un tipo raro pero importante de dolor de cabeza primario, que afecta principalmente a los hombres. Muchas personas sufren de trastornos de dolor de cabeza "mixtos" en los que los dolores de cabeza por tensión o los dolores de cabeza secundarios pueden desencadenar la migraña.</p>
-<p><strong>Dolores de cabeza secundarios</strong>: Los dolores de cabeza secundarios son causados por otras enfermedades o problemas subyacentes graves. La enfermedad asociada puede ser menor o mayor. Los dolores de cabeza crónicos y que interfieren con sus actividades diarias se consideran dolores de cabeza secundarios, es recomendable consultar a un médico en caso de padecerlos. Los dolores de cabeza secundarios pueden deberse a innumerables afecciones, que van desde las que ponen en peligro la vida como tumores cerebrales, accidentes cerebrovasculares, meningitis, vasculitis y hemorragias subaracnoideas hasta afecciones menos graves pero comunes como la abstinencia de cafeína, infección sinusal (sinusitis) y la interrupción de analgésicos (medicamento para el dolor). El embarazo a veces causa dolores de cabeza.</p>
+  <p>
+    <strong>Dolores de cabeza primarios</strong>: La mayoría de los dolores de
+    cabeza son benignos y no requieren una visita a un médico. Estos se llaman
+    dolores de cabeza primarios y representan más del 90 por ciento de las
+    quejas por dolores de cabeza. Los dolores de cabeza primarios no están
+    asociados con otras enfermedades. Ejemplos de cefaleas primarias son
+    migrañas, cefaleas tensionales y cefaleas en racimos. Los dolores de cabeza
+    por tensión son el tipo más común de dolor de cabeza primario. Las migrañas
+    son el segundo tipo más común de cefalea primaria. Los dolores de cabeza en
+    racimo son un tipo raro pero importante de dolor de cabeza primario, que
+    afecta principalmente a los hombres. Muchas personas sufren de trastornos de
+    dolor de cabeza "mixtos" en los que los dolores de cabeza por tensión o los
+    dolores de cabeza secundarios pueden desencadenar la migraña.
+  </p>
+  <p>
+    <strong>Dolores de cabeza secundarios</strong>: Los dolores de cabeza
+    secundarios son causados por otras enfermedades o problemas subyacentes
+    graves. La enfermedad asociada puede ser menor o mayor. Los dolores de
+    cabeza crónicos y que interfieren con sus actividades diarias se consideran
+    dolores de cabeza secundarios, es recomendable consultar a un médico en caso
+    de padecerlos. Los dolores de cabeza secundarios pueden deberse a
+    innumerables afecciones, que van desde las que ponen en peligro la vida como
+    tumores cerebrales, accidentes cerebrovasculares, meningitis, vasculitis y
+    hemorragias subaracnoideas hasta afecciones menos graves pero comunes como
+    la abstinencia de cafeína, infección sinusal (sinusitis) y la interrupción
+    de analgésicos (medicamento para el dolor). El embarazo a veces causa
+    dolores de cabeza.
+  </p>
 {% endblock %}
 
 <!-- treatment -->
 {% block care %}
-<h3>Reconociendo el tipo de dolor</h3>
-<p>Por lo general, un médico podrá diagnosticar un tipo particular de dolor de cabeza a través de una descripción de la afección, el tipo de dolor y el momento y el patrón de los ataques. Si la naturaleza del dolor de cabeza parece ser compleja, se pueden realizar pruebas para eliminar causas más graves.</p>
-<h5>“La persona con dolor de cabeza por tensión generalmente se queja de un dolor, palpitación o pinchazo leve a moderado que se encuentra en ambos lados de la cabeza”</h5>
-<p>Las personas con dolores de cabeza por tensión describen el dolor como una opresión no punzante, que no empeora con la actividad. Por lo general, no hay síntomas asociados, como náuseas, vómitos o sensibilidad a la luz.</p>
-<p>El examen físico, particularmente la parte neurológica del examen, es importante en los dolores de cabeza por tensión porque para hacer el diagnóstico, debe ser normal. Sin embargo, puede haber cierta sensibilidad en el cuero cabelludo o en los músculos del cuello. Si el profesional de la salud encuentra una anomalía en el examen neurológico, el diagnóstico de cefalea tensional debe suspenderse hasta que se haya investigado la posibilidad de otras causas.</p>
-<p>Algunas pruebas adicionales podrían incluir: análisis de sangre, rayos X, escáneres cerebrales, como Tomografía Computarizada (TC) y Resonancia Magnética (RM) y punción lumbar.</p>
+  <h3>
+    Reconociendo el tipo de dolor
+  </h3>
+  <p>
+    Por lo general, un médico podrá diagnosticar un tipo particular de dolor de
+    cabeza a través de una descripción de la afección, el tipo de dolor y el
+    momento y el patrón de los ataques. Si la naturaleza del dolor de cabeza
+    parece ser compleja, se pueden realizar pruebas para eliminar causas más
+    graves.
+  </p>
+  <h5>
+    “La persona con dolor de cabeza por tensión generalmente se queja de un
+    dolor, palpitación o pinchazo leve a moderado que se encuentra en ambos
+    lados de la cabeza”
+  </h5>
+  <p>
+    Las personas con dolores de cabeza por tensión describen el dolor como una
+    opresión no punzante, que no empeora con la actividad. Por lo general, no
+    hay síntomas asociados, como náuseas, vómitos o sensibilidad a la luz.
+  </p>
+  <p>
+    El examen físico, particularmente la parte neurológica del examen, es
+    importante en los dolores de cabeza por tensión porque para hacer el
+    diagnóstico, debe ser normal. Sin embargo, puede haber cierta sensibilidad
+    en el cuero cabelludo o en los músculos del cuello. Si el profesional de la
+    salud encuentra una anomalía en el examen neurológico, el diagnóstico de
+    cefalea tensional debe suspenderse hasta que se haya investigado la
+    posibilidad de otras causas.
+  </p>
+  <p>
+    Algunas pruebas adicionales podrían incluir: análisis de sangre, rayos X,
+    escáneres cerebrales, como Tomografía Computarizada (TC) y Resonancia
+    Magnética (RM) y punción lumbar.
+  </p>
 {% endblock %}
 
 {% set treatment = {
-"img": {
-"alt": "Dolor de cabeza | Las técnicas de relajación como: respiración profunda, yoga, o meditación suelen ser muy eficaces para el tratamiento dle dolor de cabeza",
-"caption": "Las técnicas de relajación como: respiración profunda, yoga, o meditación suelen ser muy eficaces para el tratamiento dle dolor de cabeza"
-}
-}
-%}
+  img: {
+    alt: 'Dolor de cabeza | Las técnicas de relajación como: respiración profunda, yoga, o meditación suelen ser muy eficaces para el tratamiento dle dolor de cabeza',
+    caption: 'Las técnicas de relajación como: respiración profunda, yoga, o meditación suelen ser muy eficaces para el tratamiento dle dolor de cabeza'
+  }
+} %}
 
 {% block treatment %}
-<h3>Tratamientos para aliviar un dolor de cabeza de forma rápida y sencilla</h3>
-<p>El dolor de cabeza por tensión promedio, el tipo más común de dolor de cabeza, dura aproximadamente cuatro horas. Pero para algunas personas, los dolores de cabeza severos se prolongan a lo largo de mucho tiempo, a veces durante varios días.</p>
-<p>Existen algunos remedios caseros para aliviar un dolor de cabeza de forma rápida y sencilla, éstos incluyen:</p>
-<ul>
-<li>Cierre los ojos y descanse</li>
-<li>Masajee su cuello y sienes</li>
-<li>Utilice técnicas de relajación como: respiración profunda, yoga, o meditación</li>
-<li>Coloque una bolsa de hielo en la zona posterior del cuello</li>
-<li>Remoje sus pies en agua caliente a tibia</li>
-<li>Tome un baño completo con agua tibia</li>
-<li>Coloque un par de pelotas de tenis dentro de un calcetín, recuéstese sobre el piso boca arriba y coloquelas entre la base de su cráneo y el suelo. Mueva su cabeza de lado a lado, y de arriba hacia abajo por unos minutos.</li>
-<li>Coloque una almohadilla térmica, paño o compresa caliente alrededor de su cuello y la base de su cráneo para aliviar los dolores de cabeza por tensión.</li>
-<li>Tome algún analgésico como <strong><a href="https://www.flanaxusa.com/productos-tabletas-analgesicas.html">Flanax</a></strong> para quitar el dolor de cabeza rápido.</li>
-</ul>
+  <h3>
+    Tratamientos para aliviar un dolor de cabeza de forma rápida y sencilla
+  </h3>
+  <p>
+    El dolor de cabeza por tensión promedio, el tipo más común de dolor de
+    cabeza, dura aproximadamente cuatro horas. Pero para algunas personas, los
+    dolores de cabeza severos se prolongan a lo largo de mucho tiempo, a veces
+    durante varios días.
+  </p>
+  <p>
+    Existen algunos remedios caseros para aliviar un dolor de cabeza de forma
+    rápida y sencilla, éstos incluyen:
+  </p>
+  <ul>
+    <li>Cierre los ojos y descanse</li>
+    <li>Masajee su cuello y sienes</li>
+    <li>
+      Utilice técnicas de relajación como: respiración profunda, yoga, o
+      meditación
+    </li>
+    <li>Coloque una bolsa de hielo en la zona posterior del cuello</li>
+    <li>Remoje sus pies en agua caliente a tibia</li>
+    <li>Tome un baño completo con agua tibia</li>
+    <li>
+      Coloque un par de pelotas de tenis dentro de un calcetín, recuéstese sobre
+      el piso boca arriba y coloquelas entre la base de su cráneo y el suelo.
+      Mueva su cabeza de lado a lado, y de arriba hacia abajo por unos minutos.
+    </li>
+    <li>
+      Coloque una almohadilla térmica, paño o compresa caliente alrededor de su
+      cuello y la base de su cráneo para aliviar los dolores de cabeza por
+      tensión.
+    </li>
+    <li>
+      Tome algún analgésico como <strong>
+        <a href="https://www.flanaxusa.com/productos-tabletas-analgesicas.html">
+          Flanax
+        </a>
+      </strong> para quitar el dolor de cabeza rápido.
+    </li>
+  </ul>
+{% endblock %}
+
+{% block treatment2 %}
+  <p>
+    Algunas terapias alternativas incluyen:
+  </p>
+  <p>
+    Acupuntura, terapia de comportamiento cognitivo-conductual, herbolaria y/o
+    productos nutricionales, hipnosis, meditación y entrenamiento de
+    biorregulación.
+  </p>
+  <p>
+    Los dolores de cabeza por migraña pueden ser más complicados de tratar que
+    los dolores de cabeza por tensión. Para la migraña, se recomienda <a href="https://www.flanaxusa.com/productos-tabletas-analgesicas.html">
+      Flanax
+    </a>.
+  </p>
 {% endblock %}
 
 {% set references = [
-  "https://medlineplus.gov/ency/article/000797.htm",
-  "https://www.mayoclinic.org/es-es/diseases-conditions/tension-headache/symptoms-causes/syc-20353977",
-  "https://www.webmd.com/migraines-headaches/guide/migraines-headaches-symptoms#1",
-  "https://www.medicalnewstoday.com/articles/73936.php",
-  "https://www.medicinenet.com/headache/symptoms.htm",
-  "https://headaches.org/",
-  "https://www.ichd-3.org/",
-  "https://www.health.harvard.edu/staying-healthy/causes-of-headaches",
-  "https://www.healthline.com/health/headache",
-  "https://www.who.int/news-room/fact-sheets/detail/headache-disorders",
-  "https://www.statista.com/topics/1974/headache-and-migraine/"
-]
-%}
+  'https://medlineplus.gov/ency/article/000797.htm',
+  'https://www.mayoclinic.org/es-es/diseases-conditions/tension-headache/symptoms-causes/syc-20353977',
+  'https://www.webmd.com/migraines-headaches/guide/migraines-headaches-symptoms#1',
+  'https://www.medicalnewstoday.com/articles/73936.php',
+  'https://www.medicinenet.com/headache/symptoms.htm',
+  'https://headaches.org/',
+  'https://www.ichd-3.org/',
+  'https://www.health.harvard.edu/staying-healthy/causes-of-headaches',
+  'https://www.healthline.com/health/headache',
+  'https://www.who.int/news-room/fact-sheets/detail/headache-disorders',
+  'https://www.statista.com/topics/1974/headache-and-migraine/'
+] %}

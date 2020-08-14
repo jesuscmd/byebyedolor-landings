@@ -22,9 +22,6 @@ body {
 }
 
 // buttons
-.btn-primary {
-  color: #fff;
-}
 
 .site-logo {
   margin: 20px;
@@ -38,6 +35,10 @@ body {
   right: 0px;
   background-size: cover;
   background-position: center center;
+}
+
+.figure {
+  margin-top: $paragraph-margin-bottom;
 }
 
 .figure-caption {

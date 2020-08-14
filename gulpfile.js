@@ -5,7 +5,7 @@ const sass = require("gulp-sass");
 const clean = require("gulp-clean");
 const del = require("del");
 const rename = require("gulp-rename");
-const removeHtmlComments = require("gulp-remove-html-comments");
+// const removeHtmlComments = require("gulp-remove-html-comments");
 const connect = require("gulp-connect-php");
 const concat = require("gulp-concat");
 const uglify = require("gulp-uglify");
@@ -13,10 +13,13 @@ const pipeline = require("readable-stream").pipeline;
 const htmlreplace = require("gulp-html-replace");
 const htmlmin = require("gulp-htmlmin");
 const foreach = require("gulp-foreach");
+const removeEmptyLines = require("gulp-remove-empty-lines");
 
 const fs = require("fs");
 const chalk = require("chalk");
 const log = require("fancy-log");
+const scaleImages = require("gulp-scale-images");
+const flatMap = require("flat-map").default;
 
 const sourcemaps = require("gulp-sourcemaps");
 const twig = require("gulp-twig");
@@ -107,110 +110,54 @@ function reload(done) {
   done();
 }
 
-// function fixDistHtml(cb) {
-//   return src(`${distAssets}*.html`)
-//     .pipe(
-//       prettyHtml({
-//         indent_size: 1,
-//         brace_style: "collapse",
-//         indent_with_tabs: true,
-//         max_preserve_newlines: 0,
-//         break_chained_membedSvgethods: true,
-//         preserve_newlines: false,
-//       })
-//     )
-//     .pipe(removeHtmlComments())
-//     .pipe(dest("dist"))
-//     .on("end", cb)
-//     .on("error", cb);
-// }
-
-// function fixHtml(cb) {
-//   return src("src/**/*.html")
-//     .pipe(
-//       prettyHtml({
-//         indent_size: 1,
-//         brace_style: "collapse",
-//         indent_with_tabs: true,
-//         max_preserve_newlines: 0,
-//         break_chained_membedSvgethods: true,
-//         preserve_newlines: false,
-//       })
-//     )
-//     .pipe(removeHtmlComments())
-//     .pipe(dest("dist"))
-//     .on("end", cb)
-//     .on("error", cb);
-// }
-
 function createLandingHTML(currentLandingPage, cb) {
-  return (
-    src(`src/${currentLandingPage}/index.twig`)
-      .pipe(
-        twig({
-          data: landingPages[currentLandingPage],
-        })
-      )
-      .pipe(
-        htmlreplace({
-          js: `../landings-assets/js/bundle.min.js`,
-        })
-      )
-      .pipe(removeHtmlComments())
-      // .pipe(
-      //   prettyHtml({
-      //     indent_size: 1,
-      //     brace_style: "collapse",
-      //     indent_with_tabs: true,
-      //     max_preserve_newlines: 0,
-      //     break_chained_membedSvgethods: true,
-      //     preserve_newlines: false,
-      //   })
-      // )
-      .pipe(htmlmin({ collapseWhitespace: true }))
-
-      .pipe(dest(`dist/${currentLandingPage}/`))
-      .on("end", cb)
-      .on("error", cb)
-  );
+  return src(`src/${currentLandingPage}/index.twig`)
+    .pipe(
+      twig({
+        data: landingPages[currentLandingPage],
+      })
+    )
+    .pipe(
+      htmlreplace({
+        js: `../landings-assets/js/bundle.min.js`,
+      })
+    )
+    .pipe(
+      htmlmin({
+        collapseWhitespace: true,
+        removeComments: true,
+      })
+    )
+    .pipe(removeEmptyLines({ removeSpaces: true }))
+    .pipe(dest(`dist/${currentLandingPage}/`))
+    .on("end", cb)
+    .on("error", cb);
 }
+
+const twoVariantsPerFile = (file, cb) => {
+  const jpegFile = file.clone();
+  jpegFile.scale = { maxWidth: 1920, format: "jpg" };
+  cb(null, [jpegFile]);
+};
 
 function copyLandingImages(currentLandingPage, cb) {
   log(chalk.yellowBright(currentLandingPage));
-  src(`src/${currentLandingPage}/imgs/**/*.*`)
+  src(`src/${currentLandingPage}/imgs/*.jpg`)
+    .pipe(flatMap(twoVariantsPerFile))
+    .pipe(scaleImages())
     .pipe(imagemin(imageminOptions))
+    .pipe(
+      rename(function (opt) {
+        opt.basename = opt.basename.replace(".1920w", "");
+        return opt;
+      })
+    )
     .pipe(dest(`dist/${currentLandingPage}/imgs/`))
+
     .on("end", cb)
     .on("error", cb);
   return true;
 }
-
-function processLandingPage(cb, landing) {
-  // log.info(chalk.red(landing));
-
-  if (!fs.existsSync(`dist/${landing}`)) {
-    fs.mkdirSync(`dist/${landing}`);
-    log.info(chalk.yellow(`📁 Landing folder created: ${landing}`));
-  }
-  // copyLandingImages(landing, cb);
-  // createLandingHTML(landing, cb);
-  // createLocalCSS(landing, cb);
-  cb();
-}
-
-// function processLandingPages(cb) {
-//   return src("src/**/index.twig")
-//     .pipe(
-//       foreach(function (stream, file) {
-//         const path = file.path.split("/");
-//         const currentPath = path[path.length - 2];
-//         return stream.pipe(processLandingPage(cb, currentPath));
-//       })
-//     )
-//     .pipe(dest("dist"))
-//     .on("end", cb)
-//     .on("error", cb);
-// }
 
 function createLandingPages(cb) {
   landingPages.forEach((landing) => {

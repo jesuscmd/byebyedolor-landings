@@ -12,12 +12,16 @@ $primary: #003a63;
 $secondary: #fcd99d;
 $primary-light: #e9eeef;
 
-$font-family-sans-serif: "Source Sans Pro", sans-serif;
+$theme-colors: (
+  'primary': $primary,
+);
+
+$font-family-sans-serif: 'Source Sans Pro', sans-serif;
 $body-color: $black;
 
 $headings-color: $primary;
 $headings-line-height: (32/26);
-$headings-font-family: "DM Serif Display", serif;
+$headings-font-family: 'DM Serif Display', serif;
 
 $h1-font-size: (64em/20);
 $h2-font-size: (48em/20);

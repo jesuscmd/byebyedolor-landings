@@ -36,6 +36,11 @@ h5 {
 }
 h6 {
   @include font-size($h6-font-size);
+  margin-bottom: $paragraph-margin-bottom;
+}
+
+.text-medium {
+  font-weight: 400;
 }
 
 .small {
@@ -44,6 +49,25 @@ h6 {
 }
 
 ul {
-  margin-bottom: $paragraph-margin-bottom;
-  padding: 1em;
+  padding: 0;
+  margin-bottom: 0;
+  &:not(:last-child) {
+    margin-bottom: $paragraph-margin-bottom;
+  }
+  &.expanded li:not(:last-child) {
+    margin-bottom: $paragraph-margin-bottom;
+  }
+  li {
+    list-style-type: none; // remove default styles
+    &::before {
+      margin-right: 0.25em;
+      width: 0.25em;
+      height: 0.25em;
+      display: inline-block;
+      vertical-align: middle;
+      border-radius: 50%;
+      background-color: currentColor;
+      content: ' ';
+    }
+  }
 }
