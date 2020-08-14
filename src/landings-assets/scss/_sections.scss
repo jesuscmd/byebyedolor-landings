@@ -1,9 +1,6 @@
 // LANDINGS TITLE
 .intro {
   position: relative;
-  // @include media-breakpoint-down(sm) {
-  //   height: 100vh;
-  // }
   .sm-wrapper {
     margin: $spacer * 2 0 $spacer;
     justify-content: center;
@@ -57,10 +54,6 @@
   margin: $spacer * 5 0;
 }
 
-// .resumen-text {
-//   line-height: (32/26);
-// }
-
 .definition-title {
   margin-bottom: $spacer * 2;
 }
@@ -90,7 +83,6 @@
   right: 0 !important;
   transform: translateZ(0);
   @include media-breakpoint-down(sm) {
-    // width: calc(40vw);
     position: relative;
     margin: 0 auto;
     width: 100%;
@@ -121,9 +113,6 @@
   position: absolute;
   transform: translateZ(0);
 }
-// .reasons-img {
-//   width: calc(50vw - 8.33333%);
-// }
 
 .treatment {
   background-color: #fff8f5;
@@ -172,9 +161,6 @@
 .muestra-text {
   margin-bottom: 1em;
 }
-// .references-links {
-//   line-height: (28/13);
-// }
 
 // SYMPTOMS
 .symptoms {

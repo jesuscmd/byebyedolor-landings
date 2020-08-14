@@ -39,6 +39,7 @@
     "gulp": "^4.0.2",
     "gulp-compass": "^2.1.0",
     "gulp-connect-php": "^1.0.3",
+    "gulp-foreach": "^0.1.0",
     "gulp-html-replace": "^1.6.2",
     "gulp-imagemin": "^7.1.0",
     "gulp-newer": "^1.4.0",

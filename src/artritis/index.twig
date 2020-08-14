@@ -1,6 +1,12 @@
 {# index.twig #}
 {% extends '../layout.twig' %}
 
+{% set meta= {
+"description": "",
+"tags" :""
+}
+%}
+
 {% set pageName = "Artritis | Byebye Dolor" %}
 {% set shareLink = "https://byebyedolor.com/artritis/" %}
 
@@ -16,6 +22,7 @@ después de los 40 años, pero pueden afectar a personas más jóvenes después 
 una lesión traumática."
 %}
 
+
 {% block definition %}
 <p>La palabra “artritis” significa literalmente inflamación de las
   articulaciones, y es un término informal para referirse al dolor, inflamación
@@ -29,36 +36,11 @@ una lesión traumática."
 {% set facts = "La osteoartritis (OA) es más probable que afecte a las mujeres
 que a los hombres después de los 50 años." %}
 
-{% set clasification = {
-"title": "Clasificación del artritis",
-"subtitle": "“No siempre se puede prevenir la artritis. Algunas causas, como el
-aumento de la edad, los antecedentes familiares y el género (muchos tipos de
-artritis son más comunes en las mujeres), están fuera de su control.”"
+{% set reasons = {
+"title": "Estas son las razones por las que tenemos osteoartritis",
+"imgAlt": "Artritis"
 }
 %}
-
-{% block symptoms %}
-<p>La artritis puede comenzar de muchas maneras y puede ser difícil de
-  reconocer. Puede aparecer lentamente y ser leve, o puede comenzar
-  repentinamente y causar un dolor intenso que aumenta en unas pocas horas. Los
-  signos y síntomas pueden ir y venir con el tiempo.</p>
-<p>Entre sus principales
-  síntomas se encuentran el <b>dolor, rigidez o inflamación de las
-    articulaciones</b>. Puede incluir molestias en <b>rodillas, codos, muñecas,
-    tobillos</b>, etcétera, en forma de pinchazos, dolor agudo, rigidez e
-  inflamación. También puede causar problemas de salud que parecen no estar
-  relacionados, como sueño, fatiga o sarpullido. Los primeros signos de artritis
-  pueden confundirse con una lesión o el resultado de una actividad 'excesiva'.</p><p>Por
-  supuesto, no todos los dolores o dolores en las articulaciones requieren
-  tratamiento médico, pero hay ciertos signos y síntomas que podrían indicar
-  algo más grave de lo esperado.</p>
-{% endblock %}
-
-
-
-
-
-
 
 {% block reasons %}
 <p>Es causado por la inflamación, descomposición y la posible pérdida de
@@ -85,24 +67,42 @@ artritis son más comunes en las mujeres), están fuera de su control.”"
 </ul>
 {% endblock %}
 
-{% block care %}
-<h3>
-  Hábitos saludables que puede practicar para reducir el riesgo de desarrollar
-  dolor articular a medida que envejece:
-</h3>
-<h6>“Muchas de estas prácticas, como hacer ejercicio y comer una dieta
-  saludable, también pueden prevenir otras enfermedades además de la artritis.”</h6>
-<p> Entre dichas prácticas podemos mencionar:
-</p>
-<ul>
-  <li>Comer pescado</li>
-  <li>Controlar su peso</li>
-  <li>Hacer ejercicio</li>
-  <li>Evitar lesiones</li>
-  <li>Proteger sus articulaciones</li>
-  <li>Consultar a un doctor</li>
-</ul>
+{% set symptoms = {
+"title": "SÍNTOMAS<br>El artritis puede tener muchos síntomas, incluyendo:",
+"subtitle": "“Los síntomas progresan lentamente y contribuyen a la discapacidad
+en el lugar de trabajo y reducen la calidad de vida.”",
+"img": {
+"alt": "Sintomas de la artritis",
+"caption": "Algunos de los síntomas del dolor de artitis"
+}
+}
+%}
+
+{% block symptoms %}
+<p>La artritis puede comenzar de muchas maneras y puede ser difícil de
+  reconocer. Puede aparecer lentamente y ser leve, o puede comenzar
+  repentinamente y causar un dolor intenso que aumenta en unas pocas horas. Los
+  signos y síntomas pueden ir y venir con el tiempo.</p>
+<p>Entre sus principales
+  síntomas se encuentran el <b>dolor, rigidez o inflamación de las
+    articulaciones</b>. Puede incluir molestias en <b>rodillas, codos, muñecas,
+    tobillos</b>, etcétera, en forma de pinchazos, dolor agudo, rigidez e
+  inflamación. También puede causar problemas de salud que parecen no estar
+  relacionados, como sueño, fatiga o sarpullido. Los primeros signos de artritis
+  pueden confundirse con una lesión o el resultado de una actividad 'excesiva'.</p><p>Por
+  supuesto, no todos los dolores o dolores en las articulaciones requieren
+  tratamiento médico, pero hay ciertos signos y síntomas que podrían indicar
+  algo más grave de lo esperado.</p>
 {% endblock %}
+
+<!-- clasification -->
+{% set clasification = {
+"title": "Clasificación del artritis",
+"subtitle": "“No siempre se puede prevenir la artritis. Algunas causas, como el
+aumento de la edad, los antecedentes familiares y el género (muchos tipos de
+artritis son más comunes en las mujeres), están fuera de su control.”"
+}
+%}
 
 {% block clasification %}
 <p>Existen más de 100 tipos diferentes de artritis y afecciones relacionadas,
@@ -125,6 +125,36 @@ artritis son más comunes en las mujeres), están fuera de su control.”"
   muchas afecciones autoinmunes e inflamatorias o enfermedades reumáticas
   pediátricas que pueden desarrollarse en niños menores de 16 años.</p>
 {% endblock %}
+
+<!-- treatment -->
+{% block care %}
+<h3>
+  Hábitos saludables que puede practicar para reducir el riesgo de desarrollar
+  dolor articular a medida que envejece:
+</h3>
+<h6>“Muchas de estas prácticas, como hacer ejercicio y comer una dieta
+  saludable, también pueden prevenir otras enfermedades además de la artritis.”</h6>
+<p> Entre dichas prácticas podemos mencionar:
+</p>
+<ul>
+  <li>Comer pescado</li>
+  <li>Controlar su peso</li>
+  <li>Hacer ejercicio</li>
+  <li>Evitar lesiones</li>
+  <li>Proteger sus articulaciones</li>
+  <li>Consultar a un doctor</li>
+</ul>
+{% endblock %}
+
+{% set treatment = {
+"img": {
+"alt": "Evite realizar actividades de alto impacto hasta después de que el dolor
+muscular desaparezca",
+"caption": "Evite realizar actividades de alto impacto hasta después de que el
+dolor muscular desaparezca"
+}
+}
+%}
 
 {% block treatment %}
 <h3>Tratamientos para aliviar un dolor de artritis</h3>

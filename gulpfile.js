@@ -12,6 +12,7 @@ const uglify = require("gulp-uglify");
 const pipeline = require("readable-stream").pipeline;
 const htmlreplace = require("gulp-html-replace");
 const htmlmin = require("gulp-htmlmin");
+const foreach = require("gulp-foreach");
 
 const fs = require("fs");
 const chalk = require("chalk");
@@ -24,14 +25,19 @@ const srcAssets = "./src/landings-assets/";
 const distAssets = "./dist/landings-assets/";
 const imagemin = require("gulp-imagemin");
 
-const jsonData = JSON.parse(fs.readFileSync("./src/data.json"));
-const landingPages = jsonData.landingsData;
-
 const imageminOptions = [
   imagemin.mozjpeg({ quality: 85, progressive: true }),
   imagemin.svgo({
     plugins: [{ removeViewBox: false }, { cleanupIDs: false }],
   }),
+];
+
+const landingPages = [
+  "artritis",
+  "dolor-de-pie",
+  "dolor-muscular",
+  "dolor-de-espalda",
+  "dolor-de-cabeza",
 ];
 
 function copyGeneralImages(cb) {
@@ -51,27 +57,6 @@ function copyJS(cb) {
     .on("error", cb);
   browserSync.reload();
   return true;
-}
-
-// function copyOthers(cb) {
-//   src([
-//     `${srcAssets}*.png`,
-//     `${srcAssets}*.xml`,
-//     `${srcAssets}*.ico`,
-//     `${srcAssets}*.webmanifest`,
-//   ])
-//     .pipe(dest(`${distAssets}`))
-//     .on("end", cb)
-//     .on("error", cb);
-//   browserSync.reload();
-//   return true;
-// }
-
-function copyFonts(cb) {
-  return src(`${srcAssets}fonts/**/*.*`)
-    .pipe(dest(`${srcAssets}fonts/`))
-    .on("end", cb)
-    .on("error", cb);
 }
 
 function resetDist() {
@@ -104,7 +89,7 @@ function compileSass(cb) {
 
 function createLocalCSS(currentLanding, cb) {
   return (
-    src(`src/${currentLanding}/scss/*.scss`)
+    src(`src/general-scss/*.scss`)
       // .pipe(sourcemaps.init())
       .pipe(sass({ outputStyle: "compressed" }).on("error", sass.logError))
       .pipe(rename("main.min.css"))
@@ -200,8 +185,35 @@ function copyLandingImages(currentLandingPage, cb) {
   return true;
 }
 
+function processLandingPage(cb, landing) {
+  // log.info(chalk.red(landing));
+
+  if (!fs.existsSync(`dist/${landing}`)) {
+    fs.mkdirSync(`dist/${landing}`);
+    log.info(chalk.yellow(`📁 Landing folder created: ${landing}`));
+  }
+  // copyLandingImages(landing, cb);
+  // createLandingHTML(landing, cb);
+  // createLocalCSS(landing, cb);
+  cb();
+}
+
+// function processLandingPages(cb) {
+//   return src("src/**/index.twig")
+//     .pipe(
+//       foreach(function (stream, file) {
+//         const path = file.path.split("/");
+//         const currentPath = path[path.length - 2];
+//         return stream.pipe(processLandingPage(cb, currentPath));
+//       })
+//     )
+//     .pipe(dest("dist"))
+//     .on("end", cb)
+//     .on("error", cb);
+// }
+
 function createLandingPages(cb) {
-  for (const landing in landingPages) {
+  landingPages.forEach((landing) => {
     log.info(chalk.red(landing));
 
     if (!fs.existsSync(`dist/${landing}`)) {
@@ -211,49 +223,9 @@ function createLandingPages(cb) {
     copyLandingImages(landing, cb);
     createLandingHTML(landing, cb);
     createLocalCSS(landing, cb);
-    // return src(`src/${landing}/index.html`)
-    //   .pipe(
-    //     prettyHtml({
-    //       indent_size: 1,
-    //       brace_style: "collapse",
-    //       indent_with_tabs: true,
-    //       max_preserve_newlines: 0,
-    //       break_chained_membedSvgethods: true,
-    //       preserve_newlines: false,
-    //     })
-    //   )
-    //   .pipe(removeHtmlComments())
-    //   .pipe(dest("dist"))
-    //   .on("end", cb)
-    //   .on("error", cb);
-  }
+  });
   cb();
-
-  //   // console.log(`obj.${prop} = ${obj[prop]}`);
-  // }
 }
-
-// function replaceBundles(cb) {
-//   return src("dist/index.html")
-//     .pipe(
-//       htmlreplace({
-//         css: "css/main.min.css",
-//         js: "js/bundle.min.js",
-//       })
-//     )
-//     .pipe(dest("dist/"))
-//     .on("end", cb)
-//     .on("error", cb);
-// }
-// function replaceHtmlURLs() {
-//   return src(["dist/index.html"])
-//     .pipe(replaceString("imgs/", "https://byebyedolor.com/coronavirus/imgs/"))
-//     .pipe(replaceString('"css/', '"https://byebyedolor.com/coronavirus/css/'))
-//     .pipe(
-//       replaceString('src="js/', 'src="https://byebyedolor.com/coronavirus/js/')
-//     )
-//     .pipe(dest("byebyeExport/"));
-// }
 
 function bundleJs(cb) {
   return pipeline(
@@ -268,23 +240,6 @@ function bundleJs(cb) {
     dest(`${distAssets}js`)
   );
 }
-
-// rename to a fixed value
-// function changeCSSName(cb) {
-//   src("./dist/css/main.css")
-//     .pipe(rename("main.min.css"))
-//     .pipe(dest("./dist/css"))
-//     .on("end", cb)
-//     .on("error", cb);
-// }
-
-// function gulpRemoveNoNecessaryHtml(cb) {
-//   src("./src/index.html")
-//     .pipe(gulpRemoveHtml())
-//     .pipe(dest("dist/"))
-//     .on("end", cb)
-//     .on("error", cb);
-// }
 
 function serve() {
   connect.server({ base: "./dist/", port: 8010, keepalive: true }, function () {
@@ -338,25 +293,8 @@ exports.serve = series(
   // replaceBundles,
   // fixHtml,
   createLandingPages,
-  // bundleJs,
+  // processLandingPages,
   // changeCSSName,
 
   serve
 );
-
-// // Export to drupal block
-// exports.byebyeexport = series(
-//   resetDist,
-//   cleanDist,
-//   compileSass,
-//   // copyJS,
-//   // copyPHP,
-//   // copyGeneralImages,
-//   // copyOthers,
-//   gulpRemoveNoNecessaryHtml,
-//   // replaceBundles,
-//   fixDistHtml,
-//   bundleJs,
-//   changeCSSName
-//   // replaceHtmlURLs
-// );

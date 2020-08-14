@@ -1,0 +1,11 @@
+@import "../landings-assets/scss/mixins";
+
+.intro-parallax-img {
+  @include imageSet("../imgs/intro-img.jpg", 1 2);
+}
+.definition-img {
+  @include imageSet("../imgs/definition-img.jpg", 1 2);
+}
+.clasification-parallax {
+  @include imageSet("../imgs/clasification-img.jpg", 1 2);
+}
