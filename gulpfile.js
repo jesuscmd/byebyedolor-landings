@@ -5,7 +5,6 @@ const sass = require("gulp-sass");
 const clean = require("gulp-clean");
 const del = require("del");
 const rename = require("gulp-rename");
-// const removeHtmlComments = require("gulp-remove-html-comments");
 const connect = require("gulp-connect-php");
 const concat = require("gulp-concat");
 const uglify = require("gulp-uglify");
