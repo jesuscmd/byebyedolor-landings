@@ -78,9 +78,11 @@
   overflow: hidden;
 }
 .reasons-img {
-  width: calc(50vw);
+  max-width: calc(50vw);
+  // max-height: 100%;
   position: absolute;
   right: 0 !important;
+  left: unset !important;
   transform: translateZ(0);
   @include media-breakpoint-down(sm) {
     position: relative;

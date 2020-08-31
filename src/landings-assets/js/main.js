@@ -4,7 +4,7 @@ var delta = 200;
 // SELECTORES
 var $clasification = $(".clasification");
 var $clasificationParallax = $(".clasification-parallax");
-var $reasons = $(".reasons");
+var $reasons = $(".reasons .col-md-6");
 var $reasonsImg = $(".reasons-img");
 
 var windowWidth = window.innerWidth;
@@ -20,6 +20,7 @@ var updateSizes = function () {
   clasificationCurrent =
     $clasification.height() - $clasificationParallax.height();
   isReasonsSceneEnabled = sceneReasons.enabled();
+
   if (windowWidth > 767) {
     if (!isReasonsSceneEnabled) {
       sceneReasons.enabled(true);
@@ -32,11 +33,21 @@ var updateSizes = function () {
     }
   }
   if (isReasonsSceneEnabled) {
+    if ($reasons.height() - 18 < $reasonsImg.height()) {
+      $reasonsImg.height($reasons.height() - 18)
+      $reasonsImg.css({ maxHeight: $reasonsImg.height + "px" })
+    } else {
+      $reasonsImg.height("auto")
+      $reasonsImg.css({ maxHeight: $reasonsImg.height + "px" })
+    }
     reasonsCurrent = $reasons.height() - $reasonsImg.height();
-    sceneReasons.duration(reasonsCurrent > 0 ? reasonsCurrent : null);
+    if ($reasons.height() > $reasonsImg.height() - 18) {
+      sceneReasons.duration(reasonsCurrent > 0 ? reasonsCurrent - 18 : 1);
+    }
   }
+
   sceneClasification.duration(
-    clasificationCurrent > 0 ? clasificationCurrent : null
+    clasificationCurrent > 0 ? clasificationCurrent : 0
   );
 };
 
@@ -68,7 +79,7 @@ $(document).ready(function () {
 
   sceneReasons = new ScrollMagic.Scene({
     triggerHook: "onLeave",
-    triggerElement: ".reasons",
+    triggerElement: ".reasons .col-md-6",
   })
     .setPin(".reasons-img")
     .addTo(controller);
@@ -100,3 +111,7 @@ window.twttr = (function (d, s, id) {
   };
   return t;
 })(document, "script", "twitter-wjs");
+
+
+// var observer = lozad(); // lazy loads elements with default selector as '.lozad'
+// observer.observe();

@@ -40,6 +40,7 @@ const landingPages = [
   "dolor-muscular",
   "dolor-de-espalda",
   "dolor-de-cabeza",
+  "colicos-menstruales"
 ];
 
 function copyGeneralImages(cb) {
@@ -208,7 +209,7 @@ function serve() {
   watch(`src/**/*.twig`, series(createLandingPages));
 
   watch(`${srcAssets}imgs/**/*.*`, copyGeneralImages);
-  watch(`${srcAssets}**/*.js`, copyJS);
+  watch(`${srcAssets}**/*.js`, bundleJs);
 
   watch("dist/**/*.html", reload);
   watch("dist/**/*.css", reload);

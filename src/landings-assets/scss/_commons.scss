@@ -6,6 +6,7 @@ html {
 }
 
 body {
+  overflow-x: hidden;
   @include media-breakpoint-down(sm) {
     font-size: 18px;
   }
