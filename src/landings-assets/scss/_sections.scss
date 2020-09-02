@@ -76,14 +76,21 @@
 .reasons {
   padding: $spacer * 6.25 0;
   overflow: hidden;
+  overflow: hidden;
+  position: relative;
+  p:last-child {
+    margin: 0;
+  }
 }
 .reasons-img {
-  max-width: calc(50vw);
+  // padding: 2em 0;
+  max-width: calc(50vw - 30px);
   // max-height: 100%;
   position: absolute;
   right: 0 !important;
   left: unset !important;
   transform: translateZ(0);
+  object-fit: cover;
   @include media-breakpoint-down(sm) {
     position: relative;
     margin: 0 auto;
@@ -93,6 +100,7 @@
 
 .clasification {
   overflow: hidden;
+  position: relative;
   &,
   & h2,
   & h5 {

@@ -33,21 +33,22 @@ var updateSizes = function () {
     }
   }
   if (isReasonsSceneEnabled) {
-    if ($reasons.height() - 18 < $reasonsImg.height()) {
-      $reasonsImg.height($reasons.height() - 18)
-      $reasonsImg.css({ maxHeight: $reasonsImg.height + "px" })
+    var reasonsDuration =
+      $reasons.height() > $reasonsImg.height() ?
+        $reasons.height() - $reasonsImg.height()
+        : 1;
+
+    if ($reasons.height() < $reasonsImg.height()) {
+      $reasonsImg.height($reasons.height())
+
     } else {
       $reasonsImg.height("auto")
-      $reasonsImg.css({ maxHeight: $reasonsImg.height + "px" })
     }
-    reasonsCurrent = $reasons.height() - $reasonsImg.height();
-    if ($reasons.height() > $reasonsImg.height() - 18) {
-      sceneReasons.duration(reasonsCurrent > 0 ? reasonsCurrent - 18 : 1);
-    }
+    sceneReasons.duration(reasonsDuration);
   }
-
+  $reasonsImg.css({ "maxHeight": $reasons.height() + "px" })
   sceneClasification.duration(
-    clasificationCurrent > 0 ? clasificationCurrent : 0
+    clasificationCurrent > 0 ? clasificationCurrent : 1
   );
 };
 
@@ -91,7 +92,10 @@ $(document).ready(function () {
     .setPin(".clasification-parallax")
     .addTo(controller);
 
-  updateSizes();
+  setTimeout(function () {
+    updateSizes();
+  }, 100);
+
 });
 
 // TWIITER CODE
